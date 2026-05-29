@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Adega do Bello — fundo (v2)</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #070710; }
+
+  /* fundo de festa distante, fraco */
+  #bg { position: fixed; inset: 0; }
+  #bg .photo {
+    position: absolute; inset: -4%;          /* overscan pro blur não mostrar borda */
+    background: url('bg/party.avif') center/cover no-repeat;
+    filter: blur(3px) saturate(1.05);
+    opacity: .22;                            /* fraquinho / distante */
+    transform: scale(1.06);
+  }
+  #bg .veil {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(7,7,16,.20), rgba(7,7,16,.78) 60%, #070710 100%),
+      linear-gradient(180deg, rgba(7,7,16,.35), rgba(7,7,16,.85));
+  }
+</style>
+</head>
+<body>
+  <div id="bg" aria-hidden="true">
+    <div class="photo"></div>
+    <div class="veil"></div>
+  </div>
+</body>
+</html>

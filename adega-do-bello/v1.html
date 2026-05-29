@@ -302,6 +302,13 @@
     object-fit: contain;
     filter: drop-shadow(0 10px 12px rgba(0,0,0,.32));
   }
+  .energy-choice {
+    min-height: 150px;
+  }
+  .energy-choice .energy-can {
+    width: 54px;
+    height: 84px;
+  }
 </style>
 </head>
 <body class="ambient font-sans text-white min-h-screen">
@@ -592,11 +599,12 @@
       dot.classList.toggle('done', i < builderState.step);
     });
 
+    builderChoices.className = step.key === 'energetico' ? 'mt-4 grid grid-cols-2 gap-3' : 'mt-4 grid grid-cols-1 gap-3';
     builderChoices.innerHTML = step.options.map((option, i) => `
-      <button class="choice tap glass flex items-center justify-between rounded-2xl p-4 text-left ${selected?.nome === option.nome ? 'active' : ''}"
+      <button class="choice tap glass ${step.key === 'energetico' ? 'energy-choice flex flex-col items-center justify-between rounded-2xl p-3 text-center' : 'flex items-center justify-between rounded-2xl p-4 text-left'} ${selected?.nome === option.nome ? 'active' : ''}"
               style="--choice-color:${option.f}"
               onclick="selectBuilderOption(${i})">
-        <span class="flex items-center gap-3">
+        <span class="${step.key === 'energetico' ? 'flex flex-col items-center gap-2' : 'flex items-center gap-3'}">
           ${step.key === 'bebida'
             ? `<span class="bottle" style="--bottle-color:${option.img || option.f}"><span>${option.short || option.nome}</span></span>`
             : step.key === 'energetico'
@@ -607,7 +615,7 @@
             <span class="block text-xs text-white/52">${option.desc}</span>
           </span>
         </span>
-        <span class="font-display text-lg" style="color:${option.f}">${brl(option.preco)}</span>
+        <span class="font-display text-lg ${step.key === 'energetico' ? 'mt-2' : ''}" style="color:${option.f}">${brl(option.preco)}</span>
       </button>
     `).join('');
 

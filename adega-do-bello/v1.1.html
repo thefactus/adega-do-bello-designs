@@ -316,6 +316,19 @@
     width: 38px;
     height: 58px;
   }
+  .choice-name {
+    min-height: 36px;
+    display: grid;
+    align-items: end;
+    font-size: 13px;
+    line-height: 1.12;
+  }
+  .choice-desc {
+    min-height: 28px;
+    display: block;
+    font-size: 11px;
+    line-height: 1.15;
+  }
 </style>
 </head>
 <body class="ambient font-sans text-white min-h-screen">
@@ -619,8 +632,8 @@
               ? `<img class="energy-can" src="${option.img}" alt="" loading="lazy" />`
             : `<span class="grid h-11 w-11 place-items-center rounded-2xl font-display text-lg text-midnight" style="background:${option.f}">${option.nome[0]}</span>`}
           <span>
-            <span class="block font-semibold">${option.nome}</span>
-            <span class="block text-xs text-white/52">${option.desc}</span>
+            <span class="choice-name font-semibold">${option.nome}</span>
+            <span class="choice-desc text-white/52">${option.desc}</span>
           </span>
         </span>
         <span class="font-display text-lg mt-2" style="color:${option.f}">${brl(option.preco)}</span>

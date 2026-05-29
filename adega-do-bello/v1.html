@@ -295,6 +295,13 @@
     text-align: center;
     padding: 2px;
   }
+  .energy-can {
+    width: 44px;
+    height: 70px;
+    flex: none;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,.32));
+  }
 </style>
 </head>
 <body class="ambient font-sans text-white min-h-screen">
@@ -515,11 +522,15 @@
       title: 'ESCOLHA<br>ENERGÉTICO',
       subtitle: '3 de 3 · escolha o energético',
       options: [
-        { nome: 'Tradicional', desc: 'sabor clássico', preco: 700, f: '#ffb020', f2: '#e07a00' },
-        { nome: 'Tropical', desc: 'mais doce e frutado', preco: 800, f: '#ffd23a', f2: '#ff7a1a' },
-        { nome: 'Melancia', desc: 'vermelho vibrante', preco: 800, f: '#ff2d78', f2: '#c4004f' },
-        { nome: 'Blue', desc: 'azul intenso', preco: 800, f: '#46c8ff', f2: '#1374d6' },
-        { nome: 'Zero', desc: 'menos açúcar', preco: 800, f: '#c6ff3a', f2: '#7ed000' },
+        { nome: 'Baly Tradicional', desc: 'sabor clássico', preco: 700, f: '#ffb020', f2: '#e07a00', img: 'img/baly/tradicional.png' },
+        { nome: 'Baly Tropical', desc: 'frutado e vibrante', preco: 800, f: '#ffd23a', f2: '#ff7a1a', img: 'img/baly/tropical.png' },
+        { nome: 'Baly Melancia', desc: 'vermelho vibrante', preco: 800, f: '#ff2d78', f2: '#c4004f', img: 'img/baly/melancia.png' },
+        { nome: 'Baly Maçã Verde', desc: 'verde azedinho', preco: 800, f: '#c6ff3a', f2: '#7ed000', img: 'img/baly/maca-verde.png' },
+        { nome: 'Baly Coco e Açaí', desc: 'roxo tropical', preco: 800, f: '#a855f7', f2: '#6d28d9', img: 'img/baly/coco-acai.png' },
+        { nome: 'Baly Tradicional Zero', desc: 'sem açúcar', preco: 800, f: '#ffb020', f2: '#e07a00', img: 'img/baly/tradicional-zero.png' },
+        { nome: 'Baly Tropical Zero', desc: 'sem açúcar', preco: 800, f: '#ffd23a', f2: '#ff7a1a', img: 'img/baly/tropical-zero.png' },
+        { nome: 'Baly Melancia Zero', desc: 'sem açúcar', preco: 800, f: '#ff2d78', f2: '#c4004f', img: 'img/baly/melancia-zero.png' },
+        { nome: 'Baly Maçã Verde Zero', desc: 'sem açúcar', preco: 800, f: '#c6ff3a', f2: '#7ed000', img: 'img/baly/maca-verde-zero.png' },
       ],
     },
   ];
@@ -588,6 +599,8 @@
         <span class="flex items-center gap-3">
           ${step.key === 'bebida'
             ? `<span class="bottle" style="--bottle-color:${option.img || option.f}"><span>${option.short || option.nome}</span></span>`
+            : step.key === 'energetico'
+              ? `<img class="energy-can" src="${option.img}" alt="" loading="lazy" />`
             : `<span class="grid h-11 w-11 place-items-center rounded-2xl font-display text-lg text-midnight" style="background:${option.f}">${option.nome[0]}</span>`}
           <span>
             <span class="block font-semibold">${option.nome}</span>
